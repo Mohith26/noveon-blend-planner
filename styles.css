@@ -10,14 +10,14 @@ a { color: var(--accent); }
 .mono, .nv-nav, .nv-band h1, .nv-band__meta, .nv-tag, .nv-kpi__label, .nv-table th, .nv-orders button, .nv-controls label, .nv-foot { font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; }
 .nv-wrap { max-width: 1152px; margin: 0 auto; }
 
-.nv-top { background: var(--black); height: 104px; }
+.nv-top { background: #000; height: 104px; }
 .nv-top__inner { height: 104px; display: flex; align-items: center; justify-content: space-between; }
 .nv-logo img { height: 46px; width: auto; display: block; }
 .nv-nav { display: flex; gap: 30px; }
 .nv-nav a { color: #fff; text-decoration: none; font-size: 18px; letter-spacing: .01em; padding-bottom: 4px; }
 .nv-nav a.is-active { border-bottom: 2px solid var(--accent); }
 
-.nv-band { background: #1b1b1b; color: #f2f1ec; padding: 34px 0 30px; border-top: 1px solid #2a2a2a; }
+.nv-band { background: #151515; color: #f2f1ec; padding: 34px 0 30px; border-top: 1px solid #2a2a2a; }
 .nv-band__meta { font-size: 13px; color: #b9b8b1; margin-bottom: 8px; }
 .nv-band h1 { font-size: 46px; font-weight: 400; line-height: 1.05; margin: 0 0 10px; letter-spacing: -.01em; }
 .nv-band p { margin: 0; max-width: 760px; color: #d9d8d1; font-size: 17px; }
