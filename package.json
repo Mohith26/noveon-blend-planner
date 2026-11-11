@@ -1,0 +1,1 @@
+{"name":"noveon-blend-planner","private":true,"type":"module","scripts":{"generate":"node scripts/generate.mjs","test":"node --test test/*.test.js"}}

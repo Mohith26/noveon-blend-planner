@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Blend Planner | Noveon Magnetics (concept)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Archivo:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nv-top">
+    <div class="nv-wrap nv-top__inner">
+      <a href="#" class="nv-logo"><img src="assets/noveon-logo.webp" alt="Noveon" /></a>
+      <nav class="nv-nav">
+        <a href="#">Orders</a>
+        <a href="#">Feedstock</a>
+        <a href="#" class="is-active">Blend Planner</a>
+        <a href="#">Furnace</a>
+        <a href="#">Quality</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="nv-band">
+    <div class="nv-wrap">
+      <div class="nv-band__meta">EcoFlux production &middot; San Marcos, TX</div>
+      <h1>Blend Planner</h1>
+      <p>Pick the feedstock lots and additives for an order so every batch lands in grade, with lab assay uncertainty priced in.</p>
+    </div>
+  </section>
+
+  <main class="nv-main">
+    <div class="nv-wrap">
+      <div class="nv-orders" id="orders"></div>
+
+      <div class="nv-controls">
+        <label>Target first-pass yield
+          <select id="yieldSel">
+            <option value="0.95">95%</option>
+            <option value="0.975">97.5%</option>
+            <option value="0.99" selected>99%</option>
+            <option value="0.995">99.5%</option>
+          </select>
+        </label>
+        <label>Minimum recycled content <b id="recVal"></b>
+          <input type="range" id="recSel" min="0.7" max="0.95" step="0.05" value="0.9" />
+        </label>
+        <div class="nv-controls__std">Compared with today's rule: <b>mean &ge; spec + 80 kA/m (1 kOe) and + 10 mT</b></div>
+      </div>
+
+      <div class="nv-kpis" id="kpis"></div>
+
+      <div class="nv-grid">
+        <section class="nv-panel">
+          <div class="nv-panel__head"><h2>Blend for this order</h2><span class="nv-tag" id="blendTag"></span></div>
+          <table class="nv-table" id="blendTable"></table>
+          <p class="nv-note" id="blendNote"></p>
+        </section>
+        <section class="nv-panel">
+          <div class="nv-panel__head"><h2>Simulated Hcj per batch</h2><span class="nv-tag" id="simTag"></span></div>
+          <div class="nv-chart" id="hcjChart"></div>
+          <div class="nv-legend"><span><i class="sw sw--teal"></i>Planner</span><span><i class="sw sw--gray"></i>Flat margin (today)</span><span><i class="sw sw--spec"></i>Grade minimum</span></div>
+          <div class="nv-var" id="varParts"></div>
+        </section>
+      </div>
+
+      <div class="nv-grid nv-grid--b">
+        <section class="nv-panel">
+          <div class="nv-panel__head"><h2>Yield vs heavy rare earth</h2><span class="nv-tag">Same order, both methods swept</span></div>
+          <div class="nv-chart" id="frontier"></div>
+          <div class="nv-legend"><span><i class="sw sw--teal"></i>Planner (yield target 90% to 99.5%)</span><span><i class="sw sw--gray"></i>Flat margin (0 to 250 kA/m)</span></div>
+          <p class="nv-note" id="frontierNote"></p>
+        </section>
+        <section class="nv-panel">
+          <div class="nv-panel__head"><h2>Property model</h2><span class="nv-tag" id="modelTag"></span></div>
+          <table class="nv-table nv-table--model" id="modelTable"></table>
+          <p class="nv-note">Fitted by least squares on past batches (ICP composition vs hysteresisgraph Br and Hcj). The coefficient covariance feeds the planner, so lightly sampled regions of the composition space get wider bands.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="nv-foot">
+    <div class="nv-wrap nv-foot__inner">
+      <span>Unofficial concept demo by Mohith Gajjela. Not affiliated with Noveon Magnetics. Synthetic data.</span>
+      <a href="https://github.com/Mohith26/noveon-blend-planner">How it works</a>
+    </div>
+  </footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
